@@ -1,6 +1,6 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=waterline-git
-pkgver=20130909
+pkgver=201309091953
 pkgrel=1
 pkgdesc="A lightweight framework for desktop widgets and applets"
 arch=('i686' 'x86_64')
@@ -21,7 +21,7 @@ _gitname="waterline"
 #_svnmod="lxpanelx"
 
 pkgver() {
-  date +%Y%m%d
+  date +%Y%m%d%H%M
 }
 
 build() {
