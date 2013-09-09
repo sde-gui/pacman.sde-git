@@ -1,5 +1,5 @@
 
-all: repo/sde.db.tar.gz
+all: repo/sde-nightly.db.tar.gz
 
 P  = repo/.timestamp.build.
 PP = repo/.timestamp.prepare.
@@ -20,8 +20,8 @@ PACKAGE_TARGETS=$(addprefix $(P),$(PACKAGES))
 
 __dummy:=$(foreach p,$(PACKAGES),$(eval $(P)$(p): $(PP)$(p)))
 
-repo/sde.db.tar.gz: packages
-	rm -f repo/sde.db.tar.gz && repo-add -f repo/sde.db.tar.gz repo/*.xz
+repo/sde-nightly.db.tar.gz: packages
+	rm -f repo/sde-nightly.db.tar.gz && repo-add -f repo/sde-nightly.db.tar.gz repo/*.xz
 
 packages: $(PACKAGE_TARGETS)
 
