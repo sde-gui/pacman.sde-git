@@ -3,4 +3,5 @@
 set -e
 set -x
 
-cd ./$1 && rm -f *.xz && makepkg && yaourt -U *.xz && cp *.xz ../ready/ && touch ../ready/.timestamp.$1
+mkdir -p repo
+cd ./$1 && rm -f *.xz && makepkg && sudo yaourt --noconfirm -U `readlink -f *.xz` && cp *.xz ../repo/ && touch ../repo/.timestamp.$1

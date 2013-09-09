@@ -1,5 +1,5 @@
 
-P = ready/.timestamp.
+P = repo/.timestamp.
 
 ALL_PACKAGES = \
 	$(P)sde-meta-git \
@@ -12,10 +12,10 @@ ALL_PACKAGES = \
 	$(P)waterline-git
 
 
-all: ready/sde.db.tar.gz
+all: repo/sde.db.tar.gz
 
-ready/sde.db.tar.gz: packages
-	rm -f ready/sde.db.tar.gz && repo-add -f ready/sde.db.tar.gz ready/*.xz
+repo/sde.db.tar.gz: packages
+	rm -f repo/sde.db.tar.gz && repo-add -f repo/sde.db.tar.gz repo/*.xz
 
 packages: $(ALL_PACKAGES)
 
@@ -29,7 +29,7 @@ $(P)stuurman-desktop-git: $(P)libsmfm-gtk2-git $(P)libsmfm-core-git
 $(P)waterline-git: $(P)libsmfm-gtk2-git $(P)libsde-utils-jansson-git $(P)libsde-utils-gtk2-git $(P)libsde-utils-git
 $(P)sde-meta-git: $(P)stuurman-git $(P)stuurman-desktop-git $(P)waterline-git
 
-ready/.timestamp.%:
+repo/.timestamp.%:
 	./build_package.sh $*
 
 
