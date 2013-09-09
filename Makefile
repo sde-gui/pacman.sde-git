@@ -1,4 +1,6 @@
 
+all: repo/sde.db.tar.gz
+
 P  = repo/.timestamp.build.
 PP = repo/.timestamp.prepare.
 
@@ -17,8 +19,6 @@ PACKAGES = \
 PACKAGE_TARGETS=$(addprefix $(P),$(PACKAGES))
 
 __dummy:=$(foreach p,$(PACKAGES),$(eval $(P)$(p): $(PP)$(p)))
-
-all: repo/sde.db.tar.gz
 
 repo/sde.db.tar.gz: packages
 	rm -f repo/sde.db.tar.gz && repo-add -f repo/sde.db.tar.gz repo/*.xz
