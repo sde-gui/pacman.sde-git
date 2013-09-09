@@ -2,7 +2,7 @@
 pkgname=sde-meta-git
 pkgver=20130909
 pkgrel=1
-pkgdesc="Simple Desktop Environment"
+pkgdesc="Meta package for Simple Desktop Environment"
 arch=('any')
 url="http://make-linux.org/"
 license=('GPL')
