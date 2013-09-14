@@ -7,6 +7,8 @@ PP = repo/.timestamp.prepare.
 PACKAGES = \
 	sde-meta-git \
 	sde-reverse-meta-git \
+	libsde-utils-git \
+	libsde-utils-x11-git \
 	libsde-utils-gtk2-git \
 	libsde-utils-jansson-git \
 	libsmfm-core-git \
@@ -26,13 +28,14 @@ repo/sde-nightly.db.tar.gz: packages
 packages: $(PACKAGE_TARGETS)
 
 $(P)libsde-utils-git: $(P)sde-reverse-meta-git
+$(P)libsde-utils-x11-git: $(P)libsde-utils-git $(P)sde-reverse-meta-git
 $(P)libsde-utils-gtk2-git: $(P)libsde-utils-git $(P)sde-reverse-meta-git
 $(P)libsde-utils-jansson-git: $(P)libsde-utils-gtk2-git $(P)libsde-utils-git $(P)sde-reverse-meta-git
 $(P)libsmfm-core-git: $(P)sde-reverse-meta-git
 $(P)libsmfm-gtk2-git: $(P)libsmfm-core-git $(P)sde-reverse-meta-git
 $(P)stuurman-git: $(P)libsmfm-gtk2-git $(P)libsmfm-core-git $(P)sde-reverse-meta-git
 $(P)stuurman-desktop-git: $(P)libsmfm-gtk2-git $(P)libsmfm-core-git $(P)sde-reverse-meta-git
-$(P)waterline-git: $(P)libsde-utils-jansson-git $(P)libsde-utils-gtk2-git $(P)libsde-utils-git $(P)sde-reverse-meta-git
+$(P)waterline-git: $(P)libsde-utils-jansson-git $(P)libsde-utils-gtk2-git $(P)libsde-utils-git $(P)libsde-utils-x11-git $(P)sde-reverse-meta-git
 $(P)sde-meta-git: $(P)stuurman-git $(P)stuurman-desktop-git $(P)waterline-git
 $(P)sde-reverse-meta-git:
 

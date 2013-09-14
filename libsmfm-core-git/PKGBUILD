@@ -1,7 +1,7 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsmfm-core-git
-pkgver=201309091953
+pkgver=201309141646
 pkgrel=1
 url="http://make-linux.org"
 pkgdesc="File managment framework for Stuurman Project. Fork of PCManFM's libfm."

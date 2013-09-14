@@ -1,6 +1,6 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=sde-meta-git
-pkgver=201309091956
+pkgver=201309142049
 pkgrel=1
 pkgdesc="Meta package for Simple Desktop Environment"
 arch=('any')
