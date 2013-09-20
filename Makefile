@@ -41,7 +41,7 @@ $(P)sde-reverse-meta-git:
 
 # Не забивать канал скачиванием, чтобы быстрее приступить к сборке libsmfm-*
 $(PP)stuurman-git: $(PP)libsmfm-gtk2-git $(PP)libsmfm-core-git
-$(PP)stuurman-desktop-git: $(PP)libsmfm-gtk2-git $(PP)libsmfm-core-git
+$(PP)stuurman-desktop-git: $(P)libsde-utils-x11-git $(PP)libsmfm-gtk2-git $(PP)libsmfm-core-git
 $(PP)libsmfm-gtk2-git: $(PP)libsmfm-core-git
 
 
