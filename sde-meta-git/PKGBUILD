@@ -1,9 +1,9 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=sde-meta-git
-pkgver=201309142319
+pkgver=201402082201
 pkgrel=1
 pkgdesc="Meta package for Simple Desktop Environment"
-arch=('any')
+arch=('i686' 'x86_64')
 url="http://make-linux.org/"
 license=('GPL')
 provides=('sde-meta')
