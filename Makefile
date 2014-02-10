@@ -15,7 +15,8 @@ PACKAGES = \
 	libsmfm-gtk2-git \
 	stuurman-git \
 	stuurman-desktop-git \
-	waterline-git
+	waterline-git \
+	spicview-git
 
 
 PACKAGE_TARGETS=$(addprefix $(P),$(PACKAGES))
@@ -36,7 +37,8 @@ $(P)libsmfm-gtk2-git: $(P)libsmfm-core-git $(P)sde-reverse-meta-git
 $(P)stuurman-git: $(P)libsmfm-gtk2-git $(P)libsmfm-core-git $(P)sde-reverse-meta-git
 $(P)stuurman-desktop-git: $(P)libsmfm-gtk2-git $(P)libsmfm-core-git $(P)sde-reverse-meta-git
 $(P)waterline-git: $(P)libsde-utils-jansson-git $(P)libsde-utils-gtk2-git $(P)libsde-utils-git $(P)libsde-utils-x11-git $(P)sde-reverse-meta-git
-$(P)sde-meta-git: $(P)stuurman-git $(P)stuurman-desktop-git $(P)waterline-git
+$(P)spicview-git: $(P)libsmfm-gtk2-git $(P)sde-reverse-meta-git
+$(P)sde-meta-git: $(P)stuurman-git $(P)stuurman-desktop-git $(P)waterline-git $(P)spicview-git
 $(P)sde-reverse-meta-git:
 
 # Не забивать канал скачиванием, чтобы быстрее приступить к сборке libsmfm-*
