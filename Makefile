@@ -2,7 +2,6 @@
 all: repo/sde-nightly.db.tar.gz
 
 P  = repo/.timestamp.build.
-PP = repo/.timestamp.prepare.
 
 PACKAGES = \
 	sde-meta-git \
@@ -20,8 +19,6 @@ PACKAGES = \
 
 
 PACKAGE_TARGETS=$(addprefix $(P),$(PACKAGES))
-
-__dummy:=$(foreach p,$(PACKAGES),$(eval $(P)$(p): $(PP)$(p)))
 
 repo/sde-nightly.db.tar.gz: packages
 	rm -f repo/sde-nightly.db.tar.gz && repo-add -f repo/sde-nightly.db.tar.gz repo/*.xz
@@ -41,15 +38,6 @@ $(P)spicview-git: $(P)libsmfm-gtk2-git $(P)sde-reverse-meta-git
 $(P)sde-meta-git: $(P)stuurman-git $(P)stuurman-desktop-git $(P)waterline-git $(P)spicview-git
 $(P)sde-reverse-meta-git:
 
-# Не забивать канал скачиванием, чтобы быстрее приступить к сборке libsmfm-*
-$(PP)stuurman-git: $(PP)libsmfm-gtk2-git $(PP)libsmfm-core-git
-$(PP)stuurman-desktop-git: $(P)libsde-utils-x11-git $(PP)libsmfm-gtk2-git $(PP)libsmfm-core-git
-$(PP)libsmfm-gtk2-git: $(PP)libsmfm-core-git
-
-
 repo/.timestamp.build.%:
 	./build_package.sh $*
-
-repo/.timestamp.prepare.%:
-	./prepare_package.sh $*
 
