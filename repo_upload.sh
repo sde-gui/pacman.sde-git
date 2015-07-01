@@ -8,4 +8,4 @@ if [[ -z $1 ]] ; then
     exit -1
 fi
 
-rsync -rlt --delete-after --progress repo/ "$1:/srv-jail/data/repos/archlinux/sde-nightly/`uname -m`/"
+rsync -rlt --delete-after --progress repo/ "$1:/data/repos/archlinux/sde-nightly/`uname -m`/"
