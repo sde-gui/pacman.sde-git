@@ -1,21 +1,20 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
-pkgname=waterline-git
-pkgver=201507012046
+pkgname=waterline-plugin-multiload-git
+pkgver=201507012056
 pkgrel=1
 pkgdesc="A lightweight framework for desktop widgets and applets"
 arch=('i686' 'x86_64')
 url="http://make-linux.org/"
 license=('GPL')
-depends=('alsa-lib' 'gtk2>=2.24.0' 'menu-cache' 'libsde-utils-git' 'libsde-utils-x11-git' 'libsde-utils-jansson-git' 'libsde-utils-gtk2-git' 'sde-reverse-meta-git')
-optdepends=('libsmfm-gtk2-git')
+depends=('gtk2>=2.24.0' 'libsde-utils-jansson-git' 'waterline' 'sde-reverse-meta-git')
 makedepends=('automake' 'intltool' 'libtool' 'pkgconfig' 'git')
 options=('!libtool')
-provides=('waterline')
-conflicts=('waterline')
-source=('git+git://make-linux.org/sde/waterline.git')
+provides=('waterline-plugin-multiload')
+conflicts=('waterline-plugin-multiload')
+source=('git+git://make-linux.org/sde/waterline-plugin-multiload.git')
 md5sums=('SKIP')
 
-_gitname="waterline"
+_gitname="waterline-plugin-multiload"
 
 pkgver() {
   date +%Y%m%d%H%M
@@ -35,7 +34,10 @@ build() {
               --localstatedir=/var \
               --disable-static \
               --disable-maintainer-mode \
-              --enable-silent-rules
+              --enable-silent-rules \
+              --with-waterline \
+              --without-xfce4 \
+              --without-lxpanel
 
   make || return 1
 }
