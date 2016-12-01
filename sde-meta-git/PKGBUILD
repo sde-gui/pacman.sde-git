@@ -8,7 +8,12 @@ url="http://make-linux.org/"
 license=('GPL')
 provides=('sde-meta')
 conflicts=('sde-meta')
-depends=('stuurman-git' 'stuurman-desktop-git' 'waterline-git' 'waterline-plugin-multiload' 'spicview-git')
+depends=('stuurman-git' \
+         'stuurman-desktop-git' \
+         'waterline-git' \
+         'waterline-plugin-multiload' \
+         'spicview-git' \
+         'rainbow-cm-git')
 
 
 pkgver() {

@@ -1,0 +1,40 @@
+# Maintainer: Vadim Ushakov <igeekless@gmail.com>
+
+pkgname=rainbow-cm-git
+pkgver=201612011935
+pkgrel=1
+pkgdesc="A lightweight clipboard manager for X11"
+arch=('i686' 'x86_64')
+license=('GPL2')
+url="http://make-linux.org/"
+depends=('gtk2' 'desktop-file-utils' 'sde-reverse-meta-git')
+install=rainbow-cm.install
+makedepends=('git' 'intltool' 'pkg-config' 'automake')
+provides=('rainbow-cm')
+conflicts=('rainbow-cm')
+
+source=('git+https://github.com/sde-gui/rainbow-cm.git')
+md5sums=('SKIP')
+
+_gitname="rainbow-cm"
+
+pkgver() {
+  date +%Y%m%d%H%M
+}
+
+build() {
+    cd "${_gitname}"
+
+    ./autogen.sh
+    ./configure \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --enable-silent-rules
+    make
+}
+
+package() {
+    cd "${_gitname}"
+    make DESTDIR="$pkgdir" install
+}
+
