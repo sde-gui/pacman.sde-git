@@ -1,7 +1,7 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsde-utils-git
-pkgver=201507082041
+pkgver=201612011506
 pkgrel=1
 url="http://make-linux.org"
 pkgdesc="SDE Utility Library"
@@ -12,7 +12,7 @@ makedepends=('git' 'intltool' 'pkgconfig' 'autoconf' 'automake')
 provides=('libsde-utils' )
 conflicts=('libsde-utils')
 
-source=('git+git://make-linux.org/sde/libsde-utils.git')
+source=('git+https://github.com/sde-gui/libsde-utils.git')
 md5sums=('SKIP')
 
 _gitname="libsde-utils"

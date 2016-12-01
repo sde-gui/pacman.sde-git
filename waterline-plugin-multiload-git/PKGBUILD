@@ -1,6 +1,6 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=waterline-plugin-multiload-git
-pkgver=201507311650
+pkgver=201612011559
 pkgrel=1
 pkgdesc="A lightweight framework for desktop widgets and applets"
 arch=('i686' 'x86_64')
@@ -11,7 +11,7 @@ makedepends=('automake' 'intltool' 'libtool' 'pkgconfig' 'git')
 options=('!libtool')
 provides=('waterline-plugin-multiload')
 conflicts=('waterline-plugin-multiload')
-source=('git+git://make-linux.org/sde/waterline-plugin-multiload.git')
+source=('git+https://github.com/sde-gui/waterline-plugin-multiload.git')
 md5sums=('SKIP')
 
 _gitname="waterline-plugin-multiload"

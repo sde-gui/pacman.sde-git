@@ -1,7 +1,7 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsmfm-gtk2-git
-pkgver=201507012158
+pkgver=201612011521
 pkgrel=1
 url="http://make-linux.org/"
 pkgdesc="File managment framework for Stuurman Project. Fork of PCManFM's libfm."
@@ -12,7 +12,7 @@ makedepends=('git' 'intltool' 'pkgconfig' 'autoconf' 'perl' 'gtk-doc' 'automake'
 provides=('libsmfm-gtk2' )
 conflicts=('libsmfm-gtk2')
 
-source=('git+git://make-linux.org/sde/libsmfm-gtk.git')
+source=('git+https://github.com/sde-gui/libsmfm-gtk.git')
 md5sums=('SKIP')
 
 _gitname="libsmfm-gtk"

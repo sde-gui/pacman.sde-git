@@ -1,7 +1,7 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsde-utils-gtk2-git
-pkgver=201507012157
+pkgver=201612011530
 pkgrel=1
 url="http://make-linux.org"
 pkgdesc="SDE Gtk+ Utility Library"
@@ -12,7 +12,7 @@ makedepends=('git' 'intltool' 'pkgconfig' 'cmake')
 provides=('libsde-utils-gtk2' )
 conflicts=('libsde-utils-gtk2')
 
-source=('git+git://make-linux.org/sde/libsde-utils-gtk.git')
+source=('git+https://github.com/sde-gui/libsde-utils-gtk.git')
 md5sums=('SKIP')
 
 _gitname="libsde-utils-gtk"
@@ -23,7 +23,14 @@ pkgver() {
 
 build() {
     cd "${_gitname}"
-    cmake -DCMAKE_INSTALL_PREFIX=/usr . && make
+
+    ./autogen.sh
+    ./configure \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --enable-silent-rules \
+        --with-gnu-ld || return 1
+    make
 }
 
 package () {

@@ -1,7 +1,7 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsmfm-core-git
-pkgver=201507101744
+pkgver=201612011508
 pkgrel=1
 url="http://make-linux.org"
 pkgdesc="File managment framework for Stuurman Project. Fork of PCManFM's libfm."
@@ -13,7 +13,7 @@ makedepends=('git' 'intltool' 'pkgconfig' 'autoconf' 'perl' 'gtk-doc' 'automake'
 provides=('libsmfm-core' )
 conflicts=('libsmfm-core')
 
-source=('git+git://make-linux.org/sde/libsmfm-core.git')
+source=('git+https://github.com/sde-gui/libsmfm-core.git')
 md5sums=('SKIP')
 
 _gitname="libsmfm-core"

@@ -8,7 +8,7 @@ include Makefile.deps
 PACKAGE_TARGETS=$(addprefix $(P),$(PACKAGES))
 
 repo/sde-nightly.db.tar.gz: packages
-	rm -f repo/sde-nightly.db.tar.gz && repo-add -f repo/sde-nightly.db.tar.gz repo/*.xz
+	rm -f repo/sde-nightly.db.tar.gz && repo-add repo/sde-nightly.db.tar.gz repo/*.xz
 
 packages: $(PACKAGE_TARGETS)
 
