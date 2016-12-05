@@ -1,6 +1,6 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=sde-meta-git
-pkgver=201612011555
+pkgver=201612051013
 pkgrel=1
 pkgdesc="Meta package for Simple Desktop Environment"
 arch=('i686' 'x86_64')
@@ -11,7 +11,7 @@ conflicts=('sde-meta')
 depends=('stuurman-git' \
          'stuurman-desktop-git' \
          'waterline-git' \
-         'waterline-plugin-multiload' \
+         'waterline-plugin-multiload-git' \
          'spicview-git' \
          'rainbow-cm-git')
 
