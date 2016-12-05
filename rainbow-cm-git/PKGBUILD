@@ -1,7 +1,7 @@
 # Maintainer: Vadim Ushakov <igeekless@gmail.com>
 
 pkgname=rainbow-cm-git
-pkgver=201612011935
+pkgver=201612051113
 pkgrel=1
 pkgdesc="A lightweight clipboard manager for X11"
 arch=('i686' 'x86_64')
@@ -23,6 +23,10 @@ pkgver() {
 }
 
 build() {
+    if [ -f "$MAKEPKG_BUILD_HOOK" ] ; then
+        . "$MAKEPKG_BUILD_HOOK"
+    fi
+
     cd "${_gitname}"
 
     ./autogen.sh

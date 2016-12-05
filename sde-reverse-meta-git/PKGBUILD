@@ -1,6 +1,6 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=sde-reverse-meta-git
-pkgver=201612011505
+pkgver=201612051115
 pkgrel=1
 pkgdesc="Reverse meta package for Simple Desktop Environment"
 arch=('any')

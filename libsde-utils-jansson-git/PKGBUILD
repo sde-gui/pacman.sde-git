@@ -1,7 +1,7 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsde-utils-jansson-git
-pkgver=201612011530
+pkgver=201612051058
 pkgrel=1
 url="http://make-linux.org"
 pkgdesc="SDE Utility Library"
@@ -22,6 +22,10 @@ pkgver() {
 }
 
 build() {
+    if [ -f "$MAKEPKG_BUILD_HOOK" ] ; then
+        . "$MAKEPKG_BUILD_HOOK"
+    fi
+
     cd "${_gitname}"
 
     ./autogen.sh
