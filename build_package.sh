@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -o nounset
 set -e
 set -x
 
@@ -18,19 +19,34 @@ _pacman() {
     sudo pacman "$@"
 }
 
-mkdir -p repo
+package="$1"
+build_dir="$REPO_BUILD_ROOT/build/$package"
+
+update_status "$package" "P" # Prepare
+
+mkdir -p "$REPO_BUILD_ROOT/repo"
+test -d "$build_dir" && rm -rf "$build_dir"
+mkdir -p "$build_dir"
+(cd "$REPO_BUILD_ROOT/$package" && cp -a -- * "$build_dir")
 
 export MAKEPKG_BUILD_HOOK="$REPO_BUILD_ROOT/makepkg_build_hook.sh"
 
-cd ./$1 && \
-    rm -fr *.xz src/ && \
-    update_status "$1" "F" && \
-    makepkg && \
-    update_status "$1" "U" && \
-    _pacman --noconfirm -U `readlink -f *.xz` && \
-    update_status "$1" "R" && \
-    cp *.xz ../repo/ && \
-    touch ../repo/.timestamp.build.$1 && \
-    update_status "$1" "D" && \
+(
+    cd "$build_dir"
+
+    update_status "$package" "F" # Fetch
+    makepkg
+
+    update_status "$1" "U" # Upgrade
+    for p in *.pkg.tar.xz ; do
+        _pacman --noconfirm -U "`readlink -f "$p"`"
+    done
+
+    update_status "$1" "R" # add to Repo
+    cp -- *.pkg.tar.xz "$REPO_BUILD_ROOT/repo/"
+    touch "$REPO_BUILD_ROOT/repo/.timestamp.build.$1"
+
+    update_status "$1" "D" # Done
     sleep 2 && \
     update_status "$1" ""
+)
