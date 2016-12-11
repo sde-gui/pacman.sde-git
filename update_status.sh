@@ -1,6 +1,4 @@
-if [ "x$REPO_BUILD_ROOT" = "x" ] ; then
-    REPO_BUILD_ROOT="`pwd`"
-fi
+REPO_BUILD_ROOT="${REPO_BUILD_ROOT:-`pwd`}"
 export REPO_BUILD_ROOT
 
 update_status() {

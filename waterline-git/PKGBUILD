@@ -1,6 +1,6 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=waterline-git
-pkgver=201612051053
+pkgver=201612081042
 pkgrel=1
 pkgdesc="A lightweight framework for desktop widgets and applets"
 arch=('i686' 'x86_64')
@@ -22,26 +22,27 @@ pkgver() {
 }
 
 build() {
+    if [ -f "$MAKEPKG_CONFIGURE_HOOK" ] ; then
+        . "$MAKEPKG_CONFIGURE_HOOK"
+    fi
+
+    cd ${_gitname}
+
+    ./autogen.sh
+    ./configure \
+        --prefix=/usr \
+        --libexec=/usr/lib \
+        --sysconfdir=/etc \
+        --localstatedir=/var \
+        --disable-static \
+        --disable-maintainer-mode \
+        --enable-silent-rules
+
     if [ -f "$MAKEPKG_BUILD_HOOK" ] ; then
         . "$MAKEPKG_BUILD_HOOK"
     fi
 
-  cd ${_gitname}
-
-  msg "Starting make..."
-  #####
-
-  ./autogen.sh || return 1
-
-  ./configure --prefix=/usr \
-              --libexec=/usr/lib \
-              --sysconfdir=/etc \
-              --localstatedir=/var \
-              --disable-static \
-              --disable-maintainer-mode \
-              --enable-silent-rules
-
-  make || return 1
+    make
 }
 
 package() {
