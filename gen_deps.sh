@@ -19,5 +19,10 @@ for p in $PACKAGES ; do
             fi
         done
     done
+
+    for f in `find "$p" -type f` ; do
+        printf '$(P)%s : %s\n' "$p" "$f"
+        printf 'Makefile.deps : %s\n' "$f"
+    done
 done
 
