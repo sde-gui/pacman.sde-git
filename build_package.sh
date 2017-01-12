@@ -1,10 +1,13 @@
 #!/bin/bash
 
 set -o nounset
-set -e
-set -x
+set -ex
 
 . ./update_status.sh
+
+MAKEPKG="${MAKEPKG:-makepkg}"
+PACMAN="${PACMAN:-pacman}"
+SUDO="${SUDO:-sudo}"
 
 pacman_queue() {
     local lockfile=/var/lib/pacman/db.lck
@@ -14,9 +17,9 @@ pacman_queue() {
     fi
 }
 
-_pacman() {
+run_pacman() {
     pacman_queue
-    sudo pacman "$@"
+    $SUDO $PACMAN "$@"
 }
 
 package="$1"
@@ -36,11 +39,11 @@ export MAKEPKG_BUILD_HOOK="$REPO_BUILD_ROOT/makepkg_build_hook.sh"
     cd "$build_dir"
 
     update_status "$package" "F" # Fetch
-    makepkg
+    $MAKEPKG
 
     update_status "$1" "U" # Upgrade
     for p in *.pkg.tar.xz ; do
-        _pacman --noconfirm -U "`readlink -f "$p"`"
+        run_pacman --noconfirm -U "`readlink -f "$p"`"
     done
 
     update_status "$1" "R" # add to Repo

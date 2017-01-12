@@ -1,7 +1,9 @@
 #!/bin/bash
 
-set -e
-set -x
+set -o nounset
+set -ex
+
+MAKEPKG="${MAKEPKG:-makepkg}"
 
 mkdir -p repo
-cd ./$1 && rm -fr *.xz src/ && makepkg -o && touch ../repo/.timestamp.prepare.$1
+cd ./$1 && rm -fr *.xz src/ && $MAKEPKG -o && touch ../repo/.timestamp.prepare.$1
