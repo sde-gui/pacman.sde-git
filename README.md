@@ -1,6 +1,6 @@
 # SDE build scripts for Arch Linux
 
-These scripts build and install the development version of SDE from the bleeding-edge sources at https://github.com/sde-gui/. Just clone the repo and run `make`:
+These scripts build and install the development version of SDE from the bleeding-edge sources. Just clone the repo and run `make`:
 
 ```
     $ git clone https://github.com/sde-gui/pacman.sde-git.git
@@ -8,7 +8,7 @@ These scripts build and install the development version of SDE from the bleeding
     $ make
 ```
 
-The build script will read package dependencies from PKGBUILD files and then compile and install them in the correct order.
+The build script will read package dependencies from PKGBUILD files and then compile and install the packages in the correct order.
 
 You can specify the `-j` option to enable the parallel build:
 
