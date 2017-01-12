@@ -20,8 +20,8 @@ You can specify the `-j` option to enable the parallel build:
 The following environment variables can be used to override the default commands:
 
 ```sh
-    $ export PACMAN="your-pacman-command --with-some-argements"
-    $ export MAKEPKG="your-makepkg-command --with-some-argements"
+    $ export PACMAN="your-pacman-command --with-some-arguments"
+    $ export MAKEPKG="your-makepkg-command --with-some-arguments"
     $ export SUDO="your-command-to-acquire-root-privileges"
 ```
 
