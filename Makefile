@@ -3,7 +3,7 @@ all: repo/sde-nightly.db.tar.gz
 
 P = repo/.timestamp.build.
 
-include Makefile.deps
+include tmp/Makefile.deps
 
 PACKAGE_TARGETS=$(addprefix $(P),$(PACKAGES))
 
@@ -15,6 +15,6 @@ packages: $(PACKAGE_TARGETS)
 repo/.timestamp.build.%:
 	./build_package.sh $*
 
-Makefile.deps: $(shell ls recipes/*/PKGBUILD)
-	./gen_deps.sh > Makefile.deps.tmp && mv Makefile.deps.tmp Makefile.deps || rm Makefile.deps
+tmp/Makefile.deps: $(shell ls recipes/*/PKGBUILD)
+	./gen_deps.sh > tmp/Makefile.deps.tmp && mv tmp/Makefile.deps.tmp tmp/Makefile.deps || rm tmp/Makefile.deps
 

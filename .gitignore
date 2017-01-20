@@ -1,7 +1,3 @@
-/Makefile.deps
-/*/*.pkg.tar.xz
-/*/pkg/
-/*/src/
 /repo/
 /build/
 /tmp/
