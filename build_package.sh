@@ -30,7 +30,7 @@ update_status "$package" "P" # Prepare
 mkdir -p "$REPO_BUILD_ROOT/repo"
 test -d "$build_dir" && rm -rf "$build_dir"
 mkdir -p "$build_dir"
-(cd "$REPO_BUILD_ROOT/$package" && cp -a -- * "$build_dir")
+(cd "$REPO_BUILD_ROOT/recipes/$package" && cp -a -- * "$build_dir")
 
 export MAKEPKG_CONFIGURE_HOOK="$REPO_BUILD_ROOT/makepkg_configure_hook.sh"
 export MAKEPKG_BUILD_HOOK="$REPO_BUILD_ROOT/makepkg_build_hook.sh"

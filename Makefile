@@ -15,6 +15,6 @@ packages: $(PACKAGE_TARGETS)
 repo/.timestamp.build.%:
 	./build_package.sh $*
 
-Makefile.deps: $(shell ls */PKGBUILD)
+Makefile.deps: $(shell ls recipes/*/PKGBUILD)
 	./gen_deps.sh > Makefile.deps.tmp && mv Makefile.deps.tmp Makefile.deps || rm Makefile.deps
 
