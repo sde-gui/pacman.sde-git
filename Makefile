@@ -16,5 +16,6 @@ repo/.timestamp.build.%:
 	./build_package.sh $*
 
 tmp/Makefile.deps: $(shell ls recipes/*/PKGBUILD)
+	mkdir -p tmp
 	./gen_deps.sh > tmp/Makefile.deps.tmp && mv tmp/Makefile.deps.tmp tmp/Makefile.deps || rm tmp/Makefile.deps
 
