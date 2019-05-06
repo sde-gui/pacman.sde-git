@@ -13,7 +13,8 @@ depends=('stuurman-git' \
          'waterline-git' \
          'waterline-plugin-multiload-git' \
          'spicview-git' \
-         'rainbow-cm-git')
+         'rainbow-cm-git' \
+         'qk-git')
 
 
 pkgver() {
