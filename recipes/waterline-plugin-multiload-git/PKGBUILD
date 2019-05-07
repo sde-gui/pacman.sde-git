@@ -4,7 +4,7 @@ pkgver=201612081046
 pkgrel=1
 pkgdesc="A lightweight framework for desktop widgets and applets"
 arch=('i686' 'x86_64')
-url="http://make-linux.org/"
+url="https://github.com/sde-gui/waterline-plugin-multiload"
 license=('GPL')
 depends=('gtk2>=2.24.0' 'libsde-utils-jansson-git' 'waterline-git' 'sde-reverse-meta-git' 'libgtop')
 makedepends=('automake' 'intltool' 'libtool' 'pkgconfig' 'git')

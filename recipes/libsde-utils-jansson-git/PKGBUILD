@@ -3,7 +3,7 @@
 pkgname=libsde-utils-jansson-git
 pkgver=201612081041
 pkgrel=1
-url="http://make-linux.org"
+url="https://github.com/sde-gui/libsde-utils-jansson"
 pkgdesc="SDE Utility Library"
 arch=('i686' 'x86_64')
 license=('GPL')

@@ -3,7 +3,7 @@
 pkgname=libsmfm-core-git
 pkgver=201612081038
 pkgrel=1
-url="http://make-linux.org"
+url="https://github.com/sde-gui/libsmfm-core"
 pkgdesc="File managment framework for Stuurman Project. Fork of PCManFM's libfm."
 arch=('i686' 'x86_64')
 license=('GPL')

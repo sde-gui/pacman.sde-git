@@ -3,7 +3,7 @@
 pkgname=libsde-utils-gtk2-git
 pkgver=201612081040
 pkgrel=1
-url="http://make-linux.org"
+url="https://github.com/sde-gui/libsde-utils-gtk"
 pkgdesc="SDE Gtk+ Utility Library"
 arch=('i686' 'x86_64')
 license=('GPL')

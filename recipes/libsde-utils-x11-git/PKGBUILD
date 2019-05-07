@@ -3,7 +3,7 @@
 pkgname=libsde-utils-x11-git
 pkgver=201612081040
 pkgrel=1
-url="http://make-linux.org"
+url="https://github.com/sde-gui/libsde-utils-x11"
 pkgdesc="SDE Utility Library"
 arch=('i686' 'x86_64')
 license=('GPL')

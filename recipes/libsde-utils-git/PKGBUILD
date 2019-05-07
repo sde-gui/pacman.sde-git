@@ -3,7 +3,7 @@
 pkgname=libsde-utils-git
 pkgver=201612111231
 pkgrel=1
-url="http://make-linux.org"
+url="https://github.com/sde-gui/libsde-utils"
 pkgdesc="SDE Utility Library"
 arch=('i686' 'x86_64')
 license=('GPL')
