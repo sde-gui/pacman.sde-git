@@ -1,0 +1,55 @@
+# -%- indent-width: 4; use-tabs: no; -%-
+# Maintainer: Vadim Ushakov <igeekless@gmail.com>
+
+pkgname=sde-session-git
+pkgver=201612081043
+pkgrel=1
+pkgdesc="A set of scripts and default configuration files for SDE session"
+arch=('i686' 'x86_64')
+license=('GPL2')
+url="https://github.com/sde-gui/sde-session"
+depends=('sde-reverse-meta-git' 'ttf-play' 'sde-session-manager-git')
+makedepends=('git' 'intltool' 'automake')
+optdepends=(
+    'waterline-git: desktop panel' \
+    'stuurman-git: file manager' \
+    'stuurman-desktop-git: desktop manager' \
+    'openbox: window manager' \
+)
+provides=('sde-session')
+conflicts=('sde-session')
+
+source=('git+https://github.com/sde-gui/sde-session.git')
+md5sums=('SKIP')
+
+_gitname="sde-session"
+
+pkgver() {
+    date +%Y%m%d%H%M
+}
+
+build() {
+    if [ -f "$MAKEPKG_CONFIGURE_HOOK" ] ; then
+        . "$MAKEPKG_CONFIGURE_HOOK"
+    fi
+
+    cd "${_gitname}"
+
+    autoreconf -i
+    ./configure \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --enable-silent-rules
+
+    if [ -f "$MAKEPKG_BUILD_HOOK" ] ; then
+        . "$MAKEPKG_BUILD_HOOK"
+    fi
+
+    make
+}
+
+package() {
+    cd "${_gitname}"
+    make DESTDIR="$pkgdir" install
+}
+

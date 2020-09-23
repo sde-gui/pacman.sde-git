@@ -1,0 +1,52 @@
+# -%- indent-width: 4; use-tabs: no; -%-
+# Maintainer: Vadim Ushakov <igeekless@gmail.com>
+
+pkgname=sde-session-manager-git
+pkgver=201612081043
+pkgrel=1
+pkgdesc="SDE session manager"
+arch=('i686' 'x86_64')
+license=('GPL2')
+url="https://github.com/sde-gui/sde-session-manager"
+depends=('sde-reverse-meta-git')
+makedepends=('git' 'intltool' 'automake' 'gtk2>=2.24.0')
+optdepends=(
+    'sde-session-git: default SDE session configuration' \
+)
+provides=('sde-session-manager')
+conflicts=('sde-session-manager')
+
+source=('git+https://github.com/sde-gui/sde-session-manager.git')
+md5sums=('SKIP')
+
+_gitname="sde-session-manager"
+
+pkgver() {
+    date +%Y%m%d%H%M
+}
+
+build() {
+    if [ -f "$MAKEPKG_CONFIGURE_HOOK" ] ; then
+        . "$MAKEPKG_CONFIGURE_HOOK"
+    fi
+
+    cd "${_gitname}"
+
+    ./autogen.sh
+    ./configure \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --enable-silent-rules
+
+    if [ -f "$MAKEPKG_BUILD_HOOK" ] ; then
+        . "$MAKEPKG_BUILD_HOOK"
+    fi
+
+    make
+}
+
+package() {
+    cd "${_gitname}"
+    make DESTDIR="$pkgdir" install
+}
+

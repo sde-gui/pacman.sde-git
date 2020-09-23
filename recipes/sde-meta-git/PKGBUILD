@@ -1,3 +1,4 @@
+# -%- indent-width: 4; use-tabs: no; -%-
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=sde-meta-git
 pkgver=201612081046
@@ -8,15 +9,19 @@ url="http://make-linux.org/"
 license=('GPL')
 provides=('sde-meta')
 conflicts=('sde-meta')
-depends=('stuurman-git' \
-         'stuurman-desktop-git' \
-         'waterline-git' \
-         'waterline-plugin-multiload-git' \
-         'spicview-git' \
-         'rainbow-cm-git' \
-         'qk-git')
+depends=(
+    'qk-git' \
+    'rainbow-cm-git' \
+    'sde-session-git' \
+    'sde-session-manager-git' \
+    'spicview-git' \
+    'stuurman-desktop-git' \
+    'stuurman-git' \
+    'waterline-git' \
+    'waterline-plugin-multiload-git' \
+)
 
 
 pkgver() {
-  date +%Y%m%d%H%M
+    date +%Y%m%d%H%M
 }
