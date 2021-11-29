@@ -1,7 +1,7 @@
 # -%- indent-width: 4; use-tabs: no; -%-
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=sde-meta-git
-pkgver=201612081046
+pkgver=202111300112
 pkgrel=1
 pkgdesc="Meta package for Simple Desktop Environment"
 arch=('i686' 'x86_64')
@@ -12,6 +12,7 @@ conflicts=('sde-meta')
 depends=(
     'qk-git' \
     'rainbow-cm-git' \
+    'sde-randr-git' \
     'sde-session-git' \
     'sde-session-manager-git' \
     'spicview-git' \

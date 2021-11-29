@@ -1,29 +1,22 @@
 # -%- indent-width: 4; use-tabs: no; -%-
 # Maintainer: Vadim Ushakov <igeekless@gmail.com>
 
-pkgname=sde-session-git
-pkgver=202111300111
+pkgname=sde-randr-git
+pkgver=202111300109
 pkgrel=1
 pkgdesc="A set of scripts and default configuration files for SDE session"
 arch=('i686' 'x86_64')
 license=('GPL2')
-url="https://github.com/sde-gui/sde-session"
-depends=('sde-reverse-meta-git' 'ttf-play' 'sde-session-manager-git')
+url="https://github.com/sde-gui/sde-randr"
+depends=('sde-reverse-meta-git' 'gtk2' 'xorg-xrandr')
 makedepends=('git' 'intltool' 'automake')
-optdepends=(
-    'waterline-git: desktop panel' \
-    'stuurman-git: file manager' \
-    'stuurman-desktop-git: desktop manager' \
-    'sde-randr-git: monitor configuration tool' \
-    'openbox: window manager' \
-)
-provides=('sde-session')
-conflicts=('sde-session')
+provides=('sde-randr')
+conflicts=('sde-randr')
 
-source=('git+https://github.com/sde-gui/sde-session.git')
+source=('git+https://github.com/sde-gui/sde-randr.git')
 md5sums=('SKIP')
 
-_gitname="sde-session"
+_gitname="sde-randr"
 
 pkgver() {
     date +%Y%m%d%H%M
@@ -40,6 +33,7 @@ build() {
     ./configure \
         --prefix=/usr \
         --sysconfdir=/etc \
+        --enable-man \
         --enable-silent-rules
 
     if [ -f "$MAKEPKG_BUILD_HOOK" ] ; then
