@@ -1,12 +1,12 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsde-utils-gtk2-git
-pkgver=201612081040
+pkgver=202304221539
 pkgrel=1
 url="https://github.com/sde-gui/libsde-utils-gtk"
 pkgdesc="SDE Gtk+ Utility Library"
 arch=('i686' 'x86_64')
-license=('GPL')
+license=('MIT')
 depends=('gtk2' 'libsde-utils-git' 'sde-reverse-meta-git')
 makedepends=('git' 'intltool' 'pkgconfig' 'cmake')
 provides=('libsde-utils-gtk2' )

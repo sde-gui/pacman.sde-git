@@ -1,10 +1,10 @@
 # Maintainer:Vadim Ushakov < igeekless@gmail.com >
 pkgname=sde-reverse-meta-git
-pkgver=201612081038
+pkgver=202304221538
 pkgrel=1
 pkgdesc="Reverse meta package for Simple Desktop Environment"
 arch=('any')
-url="http://make-linux.org/"
+url="https://github.com/sde-gui"
 license=('GPL')
 provides=('sde-reverse-meta')
 conflicts=('sde-reverse-meta')

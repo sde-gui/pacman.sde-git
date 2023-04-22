@@ -1,12 +1,12 @@
 #Maintainer : Vadim Ushakov <igeekless [at] gmail [dot] com>
 
 pkgname=libsde-utils-git
-pkgver=201612111231
+pkgver=202304221538
 pkgrel=1
 url="https://github.com/sde-gui/libsde-utils"
 pkgdesc="SDE Utility Library"
 arch=('i686' 'x86_64')
-license=('GPL')
+license=('MIT')
 depends=('glib2' 'sde-reverse-meta-git')
 makedepends=('git' 'intltool' 'pkgconfig' 'autoconf' 'automake')
 provides=('libsde-utils' )
