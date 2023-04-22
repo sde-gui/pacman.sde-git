@@ -25,7 +25,7 @@ run_pacman() {
 package="$1"
 build_dir="$REPO_BUILD_ROOT/build/$package"
 
-update_status "$package" "P" # Prepare
+update_status "$package" "PREPARE"
 
 mkdir -p "$REPO_BUILD_ROOT/repo"
 test -d "$build_dir" && rm -rf "$build_dir"
@@ -38,19 +38,19 @@ export MAKEPKG_BUILD_HOOK="$REPO_BUILD_ROOT/makepkg_build_hook.sh"
 (
     cd "$build_dir"
 
-    update_status "$package" "F" # Fetch
+    update_status "$package" "FETCH"
     $MAKEPKG
 
-    update_status "$1" "U" # Upgrade
+    update_status "$1" "INSTALL"
     for p in *.pkg.tar.xz ; do
         run_pacman --noconfirm -U "`readlink -f "$p"`"
     done
 
-    update_status "$1" "R" # add to Repo
+    update_status "$1" "REPO"
     cp -- *.pkg.tar.xz "$REPO_BUILD_ROOT/repo/"
     touch "$REPO_BUILD_ROOT/repo/.timestamp.build.$1"
 
-    update_status "$1" "D" # Done
+    update_status "$1" "DONE"
     sleep 2 && \
     update_status "$1" ""
 )
