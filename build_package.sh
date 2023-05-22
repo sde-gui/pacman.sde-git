@@ -42,12 +42,12 @@ export MAKEPKG_BUILD_HOOK="$REPO_BUILD_ROOT/makepkg_build_hook.sh"
     $MAKEPKG
 
     update_status "$1" "INSTALL"
-    for p in *.pkg.tar.xz ; do
+    for p in *.pkg.tar.* ; do
         run_pacman --noconfirm -U "`readlink -f "$p"`"
     done
 
     update_status "$1" "REPO"
-    cp -- *.pkg.tar.xz "$REPO_BUILD_ROOT/repo/"
+    cp -- *.pkg.tar.* "$REPO_BUILD_ROOT/repo/"
     touch "$REPO_BUILD_ROOT/repo/.timestamp.build.$1"
 
     update_status "$1" "DONE"
