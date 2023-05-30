@@ -39,7 +39,7 @@ export MAKEPKG_BUILD_HOOK="$REPO_BUILD_ROOT/makepkg_build_hook.sh"
     cd "$build_dir"
 
     update_status "$package" "FETCH"
-    $MAKEPKG
+    $MAKEPKG PKGDEST=.
 
     update_status "$1" "INSTALL"
     for p in *.pkg.tar.* ; do
