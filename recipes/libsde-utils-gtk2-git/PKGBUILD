@@ -8,7 +8,7 @@ pkgdesc="SDE Gtk+ Utility Library"
 arch=('i686' 'x86_64')
 license=('MIT')
 depends=('gtk2' 'gdk-pixbuf2' 'gdk-pixbuf-xlib' 'libsde-utils-git' 'sde-reverse-meta-git')
-makedepends=('git' 'intltool' 'pkgconfig' 'cmake')
+makedepends=('git' 'intltool' 'pkgconfig' 'automake' 'autoconf')
 provides=('libsde-utils-gtk2' )
 conflicts=('libsde-utils-gtk2')
 

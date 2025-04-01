@@ -8,7 +8,7 @@ pkgdesc="SDE Utility Library"
 arch=('i686' 'x86_64')
 license=('MIT')
 depends=('libsde-utils-git' 'libx11' 'sde-reverse-meta-git')
-makedepends=('git' 'intltool' 'pkgconfig' 'cmake')
+makedepends=('git' 'intltool' 'pkgconfig' 'automake' 'autoconf')
 provides=('libsde-utils-x11' )
 conflicts=('libsde-utils-x11')
 

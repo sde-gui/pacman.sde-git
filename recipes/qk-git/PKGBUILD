@@ -8,7 +8,7 @@ url="https://github.com/sde-gui/qk"
 license=('LGPL')
 depends=('gtk2>=2.24.0' 'libsm' 'sde-reverse-meta-git')
 optdepends=('ctags: Show functions in the open document')
-makedepends=('txt2tags' 'python2' 'automake' 'intltool' 'libtool' 'pkgconfig' 'git')
+makedepends=('txt2tags' 'python2' 'automake' 'intltool' 'libtool' 'pkgconfig' 'git' 'glib2-devel')
 options=('!libtool')
 provides=('qk')
 conflicts=('qk')

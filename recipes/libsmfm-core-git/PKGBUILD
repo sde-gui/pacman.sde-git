@@ -9,7 +9,7 @@ arch=('i686' 'x86_64')
 license=('GPL')
 depends=('glib2' 'menu-cache' 'sde-reverse-meta-git' 'libexif')
 optdepends=('gvfs: To access remote file systems.')
-makedepends=('git' 'intltool' 'pkgconfig' 'autoconf' 'perl' 'gtk-doc' 'automake')
+makedepends=('git' 'intltool' 'pkgconfig' 'autoconf' 'perl' 'gtk-doc' 'automake' 'glib2-devel')
 provides=('libsmfm-core' )
 conflicts=('libsmfm-core')
 
