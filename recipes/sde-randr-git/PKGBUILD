@@ -29,7 +29,7 @@ build() {
 
     cd "${_gitname}"
 
-    autoreconf -i
+    ./autogen.sh
     ./configure \
         --prefix=/usr \
         --sysconfdir=/etc \
