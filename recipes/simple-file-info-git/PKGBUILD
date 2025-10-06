@@ -1,0 +1,43 @@
+# Maintainer: Vadim Ushakov <igeekless@gmail.com>
+
+pkgname=simple-file-info-git
+pkgver=202510031353
+pkgrel=1
+pkgdesc="Shows detailed information about files using mimetype, file, exiftool, mediainfo and gio"
+arch=('any')
+license=('MIT')
+url="https://github.com/sde-gui/simple-file-info"
+depends=()
+makedepends=()
+optdepends=(
+    'perl-file-mimeinfo: for file type identification by MIME-info database'
+    'file: for file type identification by the file command'
+    'exiftool: for accessing meta-information with exiftool'
+    'mediainfo: for accessing meta-information with exiftool'
+    'yad: for displaying GUI dialogs'
+    'zenity: for displaying GUI dialogs'
+    'xdialog: for displaying GUI dialogs'
+    'gxmessage: for displaying GUI dialogs'
+    'xorg-xmessage: for displaying GUI dialogs'
+)
+provides=('simple-file-info')
+conflicts=('simple-file-info')
+
+source=('git+https://github.com/sde-gui/simple-file-info.git')
+md5sums=('SKIP')
+
+_gitname="simple-file-info"
+
+pkgver() {
+  date +%Y%m%d%H%M
+}
+
+build() {
+    true
+}
+
+package() {
+    cd "${_gitname}"
+    export PREFIX=/usr
+    DESTDIR="$pkgdir" ./install.sh
+}
