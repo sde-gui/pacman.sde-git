@@ -8,7 +8,7 @@ pacman_queue() {
     local lockfile="$($PACMAN_CONF DBPath)/db.lck"
     local lockfile=/var/lib/pacman/db.lck
     if [[ -f ${lockfile} ]]; then
-        echo 'Pacman is currently in use, waiting...'
+        echo 'Pacman is currently in use, waiting...' >&2
         while [[ -f ${lockfile} ]]; do sleep 5; done
     fi
 }
