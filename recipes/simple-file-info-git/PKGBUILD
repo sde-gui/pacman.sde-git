@@ -7,7 +7,7 @@ pkgdesc="Shows detailed information about files using mimetype, file, exiftool, 
 arch=('any')
 license=('MIT')
 url="https://github.com/sde-gui/simple-file-info"
-depends=()
+depends=('sde-reverse-meta-git')
 makedepends=()
 optdepends=(
     'perl-file-mimeinfo: for file type identification by MIME-info database'

@@ -15,6 +15,7 @@ depends=(
     'sde-randr-git' \
     'sde-session-git' \
     'sde-session-manager-git' \
+    'simple-file-info-git' \
     'spicview-git' \
     'stuurman-desktop-git' \
     'stuurman-git' \
