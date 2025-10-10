@@ -3,7 +3,9 @@
 set -o nounset
 set -ex
 
-. ./update_status.sh
+export REPO_ROOT=`pwd`
+
+. "$REPO_ROOT/update_status.sh"
 
 : "${MAKEPKG:=makepkg}"
 : "${MAKEPKG_FLAGS:=--syncdeps}"
@@ -11,17 +13,12 @@ set -ex
 : "${PACMAN_CONF:=pacman-conf}"
 : "${SUDO:=sudo}"
 
-pacman_queue() {
-    local lockfile="$($PACMAN_CONF DBPath)/db.lck"
-    local lockfile=/var/lib/pacman/db.lck
-    if [[ -f ${lockfile} ]]; then
-        echo 'Pacman is currently in use, waiting...'
-        while [[ -f ${lockfile} ]]; do sleep 5; done
-    fi
-}
+: "${PACMAN_WRAPPER:="$REPO_ROOT/pacman_wrapper.sh"}"
+
+export REAL_PACMAN="$PACMAN"
+export PACMAN="$PACMAN_WRAPPER"
 
 run_pacman() {
-    pacman_queue
     $SUDO $PACMAN "$@"
 }
 
