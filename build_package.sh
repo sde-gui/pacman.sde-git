@@ -8,7 +8,7 @@ export REPO_ROOT=`pwd`
 . "$REPO_ROOT/update_status.sh"
 
 : "${MAKEPKG:=makepkg}"
-: "${MAKEPKG_FLAGS:=--syncdeps}"
+: "${MAKEPKG_FLAGS:=--syncdeps --noconfirm}"
 : "${PACMAN:=pacman}"
 : "${PACMAN_CONF:=pacman-conf}"
 : "${SUDO:=sudo}"
