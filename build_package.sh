@@ -5,11 +5,14 @@ set -ex
 
 . ./update_status.sh
 
-MAKEPKG="${MAKEPKG:-makepkg}"
-PACMAN="${PACMAN:-pacman}"
-SUDO="${SUDO:-sudo}"
+: "${MAKEPKG:=makepkg}"
+: "${MAKEPKG_FLAGS:=--syncdeps}"
+: "${PACMAN:=pacman}"
+: "${PACMAN_CONF:=pacman-conf}"
+: "${SUDO:=sudo}"
 
 pacman_queue() {
+    local lockfile="$($PACMAN_CONF DBPath)/db.lck"
     local lockfile=/var/lib/pacman/db.lck
     if [[ -f ${lockfile} ]]; then
         echo 'Pacman is currently in use, waiting...'
@@ -39,7 +42,7 @@ export MAKEPKG_BUILD_HOOK="$REPO_BUILD_ROOT/makepkg_build_hook.sh"
     cd "$build_dir"
 
     update_status "$package" "FETCH"
-    $MAKEPKG PKGDEST=.
+    $MAKEPKG $MAKEPKG_FLAGS PKGDEST=.
 
     update_status "$1" "INSTALL"
     for p in *.pkg.tar.* ; do
